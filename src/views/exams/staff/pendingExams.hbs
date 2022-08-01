@@ -1,0 +1,103 @@
+<section>
+
+    <h3>Total de examenes pendientes para hoy: {{totalPendingOrdersToday}}. </h3>
+        <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nombre Completo</th>
+                <th scope="col">Número de documento</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Hora</th>
+                <th scope="col">Examen</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each pendingOrdersToday}}
+                <tr>
+                    <td>{{name}} {{lastName}} </td>
+                    <td>{{identification}}</td>
+                    <td>{{date_of_exam}}</td>
+                    <td>{{hour_of_exam}}</td>
+                    <td>
+
+                        <div class="dropdown">
+                            <button class="btn btn-warning btn-block btn-sm mb-3 dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                Acción
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                                <li>
+                                    <a class="dropdown-item" href="/exams/edit/{{_id}}">
+                                        <button type="button" class="btn btn-success btn-block btn-sm mb-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            Tomar examen
+                                        </button>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item" href="/exams/cancelOrder/{{_id}}"> 
+                                        <button type="button" class="btn btn-warning btn-block btn-sm mb-1"> 
+                                            cancelar cita 
+                                        </button> 
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nombre Completo</th>
+                <th scope="col">Número de documento</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Hora</th>
+                <th scope="col">Examen</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each pendingExams}}
+                <tr>
+                    <td>{{name}} {{lastName}} </td>
+                    <td>{{identification}}</td>
+                    <td>{{date_of_exam}}</td>
+                    <td>{{hour_of_exam}}</td>
+                    <td>
+
+                        <div class="dropdown">
+                            <button class="btn btn-warning btn-block btn-sm mb-3 dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                Acción
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                
+                                <li>
+                                    <a class="dropdown-item" href="/exams/edit/{{_id}}">
+                                        <button type="button" class="btn btn-success btn-block btn-sm mb-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            Tomar examen
+                                        </button>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item" href="/exams/cancelOrder/{{_id}}"> 
+                                        <button type="button" class="btn btn-warning btn-block btn-sm mb-1"> 
+                                            cancelar cita 
+                                        </button> 
+                                    </a>
+                                </li>                           
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</section>
+
+
+
+

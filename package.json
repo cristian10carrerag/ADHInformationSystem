@@ -1,0 +1,39 @@
+{
+  "name": "1-proyecto-psa",
+  "version": "1.0.0",
+  "description": "A través de este proyecto se desarrolló una plataforma para guardar y administrar los examenes PSA en los hospitales del Departamento del Huila",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [
+    "Examenes",
+    "PSA",
+    "Hospitales",
+    "Huila"
+  ],
+  "author": "Ing. Albeiro Cortés-Cabezas, MSc., Ph.D.",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "chart.js": "^3.8.0",
+    "chartjs-node-canvas": "^4.1.6",
+    "connect-flash": "^0.1.1",
+    "express": "^4.17.3",
+    "express-handlebars": "^3.1.0",
+    "express-session": "^1.17.2",
+    "handlebars": "^4.5.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.2.8",
+    "morgan": "^1.10.0",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
+    "react-chartjs-2": "^4.1.0"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.15",
+    "npm-check-updates": "^11.8.5"
+  }
+}

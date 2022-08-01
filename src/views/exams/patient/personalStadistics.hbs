@@ -1,0 +1,72 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
+
+    {{#each personalStadistics}}
+        <form action="">
+            <input type="hidden" id="count" value="{{count}}">
+            <input type="hidden" id="level" value="{{_id}}">
+        </form>
+    {{/each}}
+
+    <div class="container">
+        <h2 class="text-center">Cantidad de resultados por nivel</h2>
+        <canvas id="grafica"></canvas>
+
+        <div class="row my-4 text-center">
+            <div class="col">Alto: ADH > 5pg/ml</div>
+            <div class="col">Normal: 1pg/ml< ADH < 5pg/ml </div>
+            <div class="col">Bajo: ADH < 1pg/ml </div>
+        </div>
+    </div>
+ 
+
+<script>
+
+    const count = document.querySelectorAll("#count");
+    const level = document.querySelectorAll("#level");
+
+    const countLength = count.length;
+    console.log(countLength);
+    //Obteniendo los valores de count
+    let countValues = [];
+    let levelValues = [];
+
+    for (let i=0; i<countLength; i++){
+        countValues[i] = count[i].value; 
+        levelValues[i] = level[i].value; 
+    }
+    // Obtener una referencia al elemento canvas del DOM
+    const $grafica = document.querySelector("#grafica");
+    // Las etiquetas son las que van en el eje X. 
+    //const etiquetas = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+    const etiquetas = levelValues;
+    // Podemos tener varios conjuntos de datos. Comencemos con uno
+    const datosVentas2020 = {
+        label: "Total de resultados por nivel",
+        //data: [5000, 1500, 8000, 5102], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+        data: countValues, // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+        backgroundColor: 'rgba(54, 162, 235, 0.2)', // Color de fondo
+        borderColor: 'rgba(54, 162, 235, 1)', // Color del borde
+        borderWidth: 1,// Ancho del borde
+    };
+    new Chart($grafica, {
+        type: 'line',// Tipo de gráfica
+        data: {
+            labels: etiquetas,
+            datasets: [
+                datosVentas2020,
+                // Aquí más datos...
+            ]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }],
+            },
+        }
+        
+    });
+</script> 
+

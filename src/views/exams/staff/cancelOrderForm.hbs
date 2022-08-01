@@ -1,0 +1,47 @@
+<div class="col-md-4 mx-auto">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="text-center">Cancelación de examen.</h3>
+        </div>
+    
+    <div class="card-body">
+
+        <div class="text-center">
+            <h2>Secretaría de salud</h2>
+            <h4>Departamento del Huila</h4>
+            <p class="mb-0">Nit. 900434629-1</p>
+            <p class="mb-0">Calle 9 N° 15- 25</p>
+            <p >Tel. 8715907- 3118848270</p>
+        </div>
+
+        <div>
+            <p class="m-0"><span style="font-weight: bold;"> Paciente: </span> {{exam.name}} {{exam.lastName}}.</p>
+            <p class="m-0"><span style="font-weight: bold;"> Documento: </span> {{exam.identification}}.</p>
+            <p class="m-0"><span style="font-weight: bold;"> Fecha programada: </span> {{exam.date_of_exam}}.</p>
+            <p><span style="font-weight: bold;"> Hora programada: </span> {{exam.hour_of_exam}}.</p>
+        </div>  
+
+
+        
+            <form action="/exams/cancelOrder/{{exam._id}}?_method=PUT" method="POST">
+            <input type="hidden" name="_method" value="PUT">
+
+                <div class="form-group">
+                    <input type="hidden" name="status" value="canceled">
+                </div>
+
+                <div class="form-group text-center">
+                    <h4>Cancelar cita</h4>
+                    <label for="">Razón por la cual cancela la cita: </label>
+                    <textarea name="whyCancel" cols="45" rows="5" style="resize: none;" ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-danger btn-block" type="submit">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

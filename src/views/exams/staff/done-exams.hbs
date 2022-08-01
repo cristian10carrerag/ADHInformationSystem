@@ -1,0 +1,26 @@
+<section>
+    <h2>Examenes Realizados</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nombre Completo</th>
+                <th scope="col">Número de documento</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Resultado</th>
+                <th scope="col">Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each isExamDone}}
+                <tr>
+                    <td>{{name}} {{lastName}} </td>
+                    <td>{{identification}}</td>
+                    <td>{{date_of_exam}}</td>
+                    <td>{{Result}}</td>
+                    <td> {{description}}</td>
+                    <td><a href="/exams/exam/{{_id}}">Ver examen</a></td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</section>

@@ -1,0 +1,70 @@
+<div class="col-md-4 mx-auto">
+    <div class="card">
+        <div class="card-header">
+            <h3>Módulo toma de examen</h3>
+        </div>
+
+        <div class="card-body">
+
+            <div class="text-center">
+                <h2>Secretaría de salud</h2>
+                <h4>Departamento del Huila</h4>
+                <p class="mb-0">Nit. 900434629-1</p>
+                <p class="mb-0">Calle 9 N° 15- 25</p>
+                <p >Tel. 8715907- 3118848270</p>
+            </div>
+
+            <div>
+                <p class="m-0"><span style="font-weight: bold;"> Paciente: </span> {{exam.name}} {{exam.lastName}}.</p>
+                <p class="m-0"><span style="font-weight: bold;"> Documento: </span> {{exam.identification}}.</p>
+                <p class="m-0"><span style="font-weight: bold;"> Fecha programada: </span> {{exam.date_of_exam}}.</p>
+                <p><span style="font-weight: bold;"> Hora programada: </span> {{exam.hour_of_exam}}.</p>
+            </div>  
+
+            <div>
+                <p class="mb-0" style="font-weight: bold;">Dictamen previo: </p>
+                <p>{{exam.Dx}}</p>
+            </div>
+
+            <form action="/exams/edit/{{exam._id}}?_method=PUT" method="POST">
+            <input type="hidden" name="_method" value="PUT">
+
+                <h4 class="text-center">Publicación de resultados:</h4>
+
+                <div class="form-group d-flex flex-column">
+                    <label for="result" class="mb-0">Resultado en pg/ml </label>
+                    <input id="result" type="number" name="Result" step="any" placeholder="Resultado">
+                </div>
+
+                <div class="form-group d-flex flex-column">
+                    <label for="description" class="mb-0">Observaciones </label>
+                    <textarea id="description" name="description" cols="15" rows="5" style="resize: none;" > </textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="nivel">Nivel</label>
+                    <select name="nivel" id="nivel" required>
+                        <option value="bajo">Bajo</option>
+                        <option value="normal">Normal</option>
+                        <option value="alto">Alto</option>
+                    </select>
+                </div>
+
+                <input type="hidden" name="status" value="completed">
+
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block" type="submit">
+                        Guardar
+                    </button>
+                </div>
+            </form>
+
+{{!--             <a href="/exams/updateLastResult/{{exam.user}}">
+                <button type="button">
+                    Actualizar perfil del usuario
+                </button>
+            </a> --}}
+
+        </div>
+    </div>
+</div>

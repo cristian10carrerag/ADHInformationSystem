@@ -1,0 +1,17 @@
+{{#each lastExam}}
+
+    <form action="/exams/updateLastResult/{{user}}?_method=PUT" method="POST">
+    <input type="hidden" name="_method" value="PUT">
+
+        <div class="text-center">
+
+            <p>{{user}}</p>
+            <p>{{name}}</p>
+            <p>{{Result}}</p>
+
+            <input type="number" name="Result" value="{{Result}}">
+
+            <button class="btn btn-warning">Actualizar usuario</button>
+        </div>
+    </form>
+{{/each}}

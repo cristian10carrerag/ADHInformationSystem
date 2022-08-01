@@ -1,0 +1,152 @@
+<div class="col-md-10 mx-auto mt-0">
+<div> 
+  <hr>
+  <h2> <p class="font-italic inline">Usuarios</p></h2>  
+  <hr>
+</div>
+{{#if pList}}
+  <table class="table table-light table-bordered table-hover overflow-y: hidden">
+    <thead class="table-secondary">
+      <tr>
+        <th scope="col">Nombres</th>
+        <th scope="col">Primer apellido</th>
+        <th scope="col">Segundo apellido</th>
+        <th scope="col">Identificación</th>
+        <th scope="col">Correo electrónico</th>
+        <th scope="col">Tipo</th>      
+        <th scope="col">Agendar</th>  
+      </tr>
+    </thead>
+    <tbody>   
+      {{#each pList}} 
+        <tr>
+          <td>{{name}}</td>
+          <td>{{lastname}}</td>
+          <td>{{sec_lastname}}</td>
+          <td>{{identification}}</td>
+          <td>{{email}}</td>
+          <td>{{role}}</td>    
+          <td>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Generar orden
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header mx-auto">
+                    <h4 class="modal-title text-center row" id="exampleModalLabel">Orden de examen "Prueba de ADH"</h4>
+                </div>
+
+                <div class="modal-body">
+                  <div class="text-center">
+                    <h2>Secretaría de salud</h2>
+                    <h4>Departamento del Huila</h4>
+                    <p class="mb-0">Nit. 900434629-1</p>
+                    <p class="mb-0">Calle 9 N° 15- 25</p>
+                    <p >Tel. 8715907- 3118848270</p>
+                  </div>
+
+                    <p class="m-0"><span style="font-weight: bold;"> Paciente: </span> {{name}} {{lastname}}.</p>
+                    <p><span style="font-weight: bold;"> Documento: </span> {{identification}}.</p>
+      
+
+                  <div class="text-center row">
+                    <p class="col mb-0" style="font-weight: bold;">Código</p>
+                    <p class="col mb-0" style="font-weight: bold;">Prestación</p>
+                    <p class="col mb-0" style="font-weight: bold;">Muestra</p>
+                  </div>
+
+                  <div class="text-center row">
+                    <p class="col">914102</p>
+                    <p class="col">Hormona Antidiuretica</p>
+                    <p class="col">Plasma con EDTA Congelado: 8 mL. Enviar 2 tubos</p>
+                  </div>          
+
+                    <form action="/exams/new-exam" method="POST">
+
+                    <div class="form-group my-3 d-flex flex-column">
+                      <textarea name="Dx" id="Dx" cols="20" rows="5" style="resize:none;" placeholder="Dx"></textarea>
+                    </div>
+
+                    <div class="d-flex">
+                      <div class="form-group my-3 col-6">
+                        <label for="date_of_exam">Fecha de examen:</label>
+                          <input type="date" name="date_of_exam" id="date_of_exam" class="form-control">
+                      </div>
+
+                      <script>
+                        var fecha = new Date();
+                        var anio = fecha.getFullYear();
+                        var dia = fecha.getDate();
+                        var _mes = fecha.getMonth(); 
+                        _mes = _mes + 1; 
+                        if (_mes < 10) 
+                        {
+                          var mes = "0" + _mes;
+                        } else {
+                          var mes = _mes.toString;
+                        }
+                          let fecha_minimo = anio + '-' + mes + '-' + dia; // Nueva variable
+                        document.getElementById("date_of_exam").setAttribute('min',fecha_minimo);
+                      </script>
+
+                      <div class="form-group my-3 col-5">
+                        <label for="">Hora de examen: </label>
+                          <select class="custom-select mr-sm-2" name="hour_of_exam"> 
+                              <option selected disabled> Elija hora </option>                                                        
+                              <option value="7:00 a.m.">7:00 a.m.</option>
+                              <option value="8:00 a.m.">8:00 a.m.</option>
+                              <option value="9:00 a.m.">9:00 a.m.</option>
+                              <option value="10:00 a.m.">10:00 a.m.</option>
+                              <option value="11:00 a.m.">11:00 a.m.</option>
+                              <option value="12:00 a.m.">12:00 a.m.</option>
+                              <option value="1:00 p.m.">1:00 p.m.</option>
+                              <option value="2:00 p.m.">2:00 p.m.</option>
+                              <option value="3:00 p.m.">3:00 p.m.</option>
+                              <option value="4:00 p.m.">4:00 p.m.</option>
+                              <option value="5:00 p.m.">5:00 p.m.</option>
+                              <option value="6:00 p.m.">6:00 p.m.</option>
+                          </select>
+                      </div> 
+                    </div>
+
+                    <div class="d-none">
+                        <input type="text" name="name" value={{name}}>
+                        <input type="text" name="lastName" value={{lastname}}>
+                        <input type="text" name="identification" value={{identification}}>
+                        <input type="text" name="city" value={{city}}>
+                        <input type="text" name="user" value={{_id}}>
+                        <input type="text" name="date_of_bird" value={{date_of_bird}}>
+                    </div>
+
+                    <input type="hidden" name="status" value="pending">
+
+                    <div class="form-group my-3">
+                        <button class="btn btn-primary btn-block"> 
+                            Generar
+                        </button>
+                    </div>  
+
+                    </div>                                      
+                </form>
+                </div>
+            </div>
+            </div>
+
+          </td> 
+        </tr>
+      {{/each}}     
+    </tbody>
+  </table>
+{{else}}
+  <br>
+  <br>
+  <br>
+  <div>
+    <h4>No se encontró ningún usuario!!</h4>
+  </div>
+{{/if}}
+</div>

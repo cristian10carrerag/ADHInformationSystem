@@ -1,0 +1,151 @@
+<nav id="sidebar">
+    <div class="sidebar-header">
+        <h3 class="mb-0 mt-1 text-center font-italic font-weight-bold">ADH</h3>
+        <h5 class="mt-0 mb-0 text-center">Sistema de información</h5>
+    </div>
+
+    <ul class="list-unstyled components mt-0"> 
+        <li class="active mt-0">
+            <a href="/users/signInForm">Inicio</a>
+        </li>       
+
+        {{#if user}}
+            <li>
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle mt-0">Manuales</a> 
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a href="#">Paciente</a>
+                    </li>
+                    <li>
+                        <a href="#">Empleado</a>
+                    </li>
+                    <li>
+                        <a href="#">Médico</a>
+                    </li>
+                    <li>
+                        <a href="#">Administrador</a>
+                    </li>
+                </ul>
+            </li>
+        {{/if}}
+
+        {{#if Admin}}
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Usuarios</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a href="/users/createUserForm">Agregar usuario</a>
+                    </li>        
+                    <li>
+                        <a href="/users/seeAllPatientsAdmin">Lista de pacientes</a>
+                    </li>
+                    <li>
+                        <a href="/users/seeAllPhysicianAdmin">Lista de médicos</a>
+                    </li>
+                    <li>
+                        <a href="/users/seeAllLabStaffAdmin">Lista de empleados</a>
+                    </li>
+                    <li>
+                        <a href="/users/seeAllAdmin">Lista de administradores</a>
+                    </li>
+                    <li>
+                        <a href="/users/seeAllUsersAdmin">Listar todos</a>
+                    </li>
+                    <li>
+                        <a href="/users/findUserByIdentification">Búsqueda de usuario por cédula</a>
+                    </li>
+                    <li>
+                        <a href="/users/findUserByEmail">Búsqueda de usuario por email</a>
+                    </li>
+                </ul>
+            </li>  
+        {{/if}}        
+
+        {{#if user}}
+        <li>
+            <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Exámenes</a>
+            <ul class="collapse list-unstyled" id="pageSubmenu1">
+
+                {{#if Paciente}}
+                    <a href="/exams-patient">Mis examenes</a>
+                {{/if}}
+
+                {{#if Medico}}
+                    <li>
+                        <a href="/exams/findUserByIdentification">Generar orden de examen</a>
+                    </li>
+                {{/if}}
+
+                {{#if Empleado}}
+                    <li>
+                        <a href="/staff/orders"> Ordenes médicas </a>
+                    </li>
+                {{/if}}
+
+                {{#if Admin}}
+                    <li>
+                        <a href="/staff/delete/orders"> Eliminar ordenes médicas </a>
+                    </li>
+                {{/if}}                
+
+
+                {{#if Medico}}
+                    <li>
+                        <a href="/exams-done">Exámenes realizados</a>
+                    </li>
+                {{/if}}
+
+                {{#if Empleado}}                
+                    <li>
+                        <a href="/exams-canceled">Exámenes cancelados</a>
+                    </li>
+                {{/if}}
+            </ul>
+        </li>
+        {{/if}}
+
+        <li>
+            <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Estadísticas</a>
+            <ul class="collapse list-unstyled" id="pageSubmenu2">
+                {{#if Admin}}
+                    <li>
+                        <a href="/exams/stadistics/general">General</a>
+                    </li>
+                {{/if}}
+                <li>
+                    <a href="/exams/stadistics/user">Estadisticas por niveles</a>
+                </li>
+                <li>
+                    <a href="/exams/stadistics/examsPerCity">Estadisticas por municipio</a>
+                </li>
+                <li>
+                    <a href="/exams/stadistics/examsPerAge">Estadisticas por edad</a>
+                </li>
+            </ul>
+        </li>
+
+        {{#if user}}
+        <li>
+            <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Mi perfil</a>
+            <ul class="collapse list-unstyled" id="pageSubmenu4">
+                <li>
+                    <a href="/users/myProfile">Mi perfil</a>
+                </li>
+                <li>
+                    <a href="/users/changePasswd">Cambiar mi contraseña</a>
+                </li>
+            </ul>
+        </li>
+        {{/if}}
+    </ul>
+
+    <ul class="list-unstyled CTAs">        
+        <li>            
+            <div > 
+                <p class="badge rounded-0 bg-info text-center container mb-0">Secretaría de salud
+                <br> Departamento del Huila</p>
+                <img src="/img/minsalud.png" width="210" alt="" />                                          
+            </div>   
+        </li>        
+    </ul>
+</nav>

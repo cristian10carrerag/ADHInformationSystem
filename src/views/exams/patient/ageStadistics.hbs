@@ -1,0 +1,93 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
+
+    {{#each ageStadistics}}
+        <form action="">
+            <input type="hidden" id="count" value="{{count}}">
+            <input type="hidden" id="level" value="{{_id}}">
+        </form>
+    {{/each}}
+
+    <div class="container text-center my-4">
+        <h2>Examenes completados agrupados por edad</h2>
+    </div>
+
+    <div class="container my-4">
+        <canvas id="grafica"></canvas>
+    </div> 
+
+    <div class="container mt-4 mb-4 text-center">
+        <div class="row">
+            <div class="col">Grupo 1: Entre 18 y 24 años.</div>
+            <div class="col">Grupo 2: Entre 25 y 34 años.</div>
+            <div class="col">Grupo 3: Entre 35 y 44 años.</div>
+        </div>
+
+        <div class="row">
+            <div class="col">Grupo 4: Entre 45 y 54 años.</div>
+            <div class="col">Grupo 5: Entre 55 y 64 años.</div>
+            <div class="col">Grupo 6: Mayor de 65 años.</div>
+        </div>
+    </div>
+
+
+<script>
+    const count = document.querySelectorAll("#count");
+    const level = document.querySelectorAll("#level");
+
+    const countLength = count.length;
+    console.log(countLength);
+    //Obteniendo los valores de count
+    let countValues = [];
+    let levelValues = [];
+
+
+    for (let i=0; i<countLength; i++){
+        countValues[i] = count[i].value; 
+        levelValues[i] = level[i].value;  
+    }
+
+    console.log(countValues);
+    console.log(levelValues);
+
+        // Obtener una referencia al elemento canvas del DOM
+    const $grafica = document.querySelector("#grafica");
+    // Las etiquetas son las que van en el eje X. 
+    //const etiquetas = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+    const etiquetas = levelValues;
+    // Podemos tener varios conjuntos de datos. Comencemos con uno
+    const totalExamenes = {
+        label: "Examenes realizados en el Huila",
+        data: countValues, // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+        backgroundColor: [
+        'rgb(255, 99, 132)',
+        'rgb(54, 162, 235)',
+        'rgb(255, 205, 86)'
+        ],
+        borderColor: 'rgba(54, 162, 235, 1)', // Color del borde
+        borderWidth: 1,// Ancho del borde
+    };
+
+
+    new Chart($grafica, {
+        type: 'pie',// Tipo de gráfica
+        data: {
+            labels: etiquetas,
+            datasets: [
+                totalExamenes
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Chart.js Pie Chart'
+                }
+            }
+        }
+        });
+        
+</script> 

@@ -1,0 +1,17 @@
+<div class="row my-4 mx-auto">
+    {{#each exams}}
+            <div class="col-md-3 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title d-flex justify-content-between align-items-center">
+                            {{name}} {{lastName}} 
+                        </h4>
+                        <p>{{identification}}</p>
+                        <p> <span class="font-weight-bold"> Fecha de examen:</span> <br> {{date_of_exam}}</p>
+
+                        <button class="btn btn-primary"><a href="/exams/exam/{{_id}}">Ver examen</a></button>
+                    </div>
+                </div>
+            </div>
+    {{/each}}
+</div>

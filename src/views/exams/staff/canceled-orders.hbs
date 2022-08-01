@@ -1,0 +1,27 @@
+<section>
+    <h2>Examenes Cancelados</h2>
+
+    <h3>Este mes han sido cancelados {{examenesCanceladosActualMes}} examenes</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nombre Completo</th>
+                <th scope="col">Número de documento</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Hora</th>
+                <th scope="col">Razón</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each canceledOrders}}
+                <tr>
+                    <td>{{name}} {{lastName}} </td>
+                    <td>{{identification}}</td>
+                    <td>{{date_of_exam}}</td>
+                    <td>{{hour_of_exam}}</td>
+                    <td>{{whyCancel}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</section>

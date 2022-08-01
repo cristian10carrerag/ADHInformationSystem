@@ -1,0 +1,28 @@
+<!-- Navbar  -->
+<nav class="navbar navbar-expand-lg navbar-black">
+    <div class="container-fluid">
+
+        <button type="button" id="sidebarCollapse" class="btn btn-info">
+            <i class="fa fa-bars fa-align-left"></i>                        
+        </button>
+
+        {{#if user}}
+        <div class="text-center">
+            {{name}} {{lastname}} {{sec_lastname }} <br>
+            {{user.role}}
+         </div>
+        <a href="/users/logout">
+            <button type="button" class="btn btn-primary">
+                Cerrar sesión
+            </button> 
+        </a>
+        {{else}}
+        <a  href="/users/signInForm">
+            <button type="button" class="btn btn-primary">
+                Iniciar sesión
+            </button> 
+        </a>
+        {{/if}}
+                                                       
+    </div>
+</nav>

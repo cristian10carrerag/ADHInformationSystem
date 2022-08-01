@@ -1,0 +1,45 @@
+<section>    
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nombre Completo</th>
+                <th scope="col">Número de documento</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Hora</th>
+                <th scope="col">Examen</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each pendingExams}}
+                <tr>
+                    <td>{{name}} {{lastName}} </td>
+                    <td>{{identification}}</td>
+                    <td>{{date_of_exam}}</td>
+                    <td>{{hour_of_exam}}</td>
+                    <td>
+
+                        <div class="dropdown">
+                            <button class="btn btn-warning btn-block btn-sm mb-3 dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                Acción
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li>
+                                        <form action="/exams/staff/delete/{{_id}}?_method=DELETE" method="POST" class="mx-4">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                                <button class="btn btn-danger btn-block btn-sm" type="submit">
+                                                    Eliminar
+                                                </button>
+                                        </form>
+                                    </li>
+                            </ul>
+                        </div>
+
+
+
+
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</section>

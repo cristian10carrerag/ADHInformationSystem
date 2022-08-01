@@ -1,0 +1,88 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
+
+    {{#each GroupalStadistics}}
+        <form action="">
+            <input type="hidden" id="count" value="{{count}}">
+            <input type="hidden" id="level" value="{{_id}}">
+        </form>
+    {{/each}}
+
+    {{#each anormalLevel2}}
+        <form action="">
+            <input type="hidden" id="sickPeople" value="{{count}}">
+        </form>
+    {{/each}}
+
+    <div class="container">
+        <h2 class="text-center">Resultados alarmantes por municipio</h2>
+
+        <canvas id="grafica"></canvas>
+    </div>
+     
+
+<script>
+
+    const count = document.querySelectorAll("#count");
+    const level = document.querySelectorAll("#level");
+    const sickPeople = document.querySelectorAll("#sickPeople");
+
+    const countLength = count.length;
+    console.log(countLength);
+    //Obteniendo los valores de count
+    let countValues = [];
+    let levelValues = [];
+    let sickPeopleValues= [];
+
+    for (let i=0; i<countLength; i++){
+        countValues[i] = count[i].value; 
+        levelValues[i] = level[i].value; 
+        sickPeopleValues[i] = sickPeople[i].value; 
+    }
+    console.log(countValues);
+    console.log(levelValues);
+    console.log(sickPeopleValues);
+
+        // Obtener una referencia al elemento canvas del DOM
+    const $grafica = document.querySelector("#grafica");
+    // Las etiquetas son las que van en el eje X. 
+    //const etiquetas = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+    const etiquetas = levelValues;
+    // Podemos tener varios conjuntos de datos. Comencemos con uno
+    const totalExamenes = {
+        label: "Examenes realizados",
+        data: countValues, // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+        backgroundColor: 'rgba(54, 162, 235, 0.2)', // Color de fondo
+        borderColor: 'rgba(54, 162, 235, 1)', // Color del borde
+        borderWidth: 1,// Ancho del borde
+    };
+
+        const anormalResults = {
+        label: "Resultados anormales",
+        data: sickPeopleValues, // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+        backgroundColor: 'rgba(54, 162, 235, 1)', // Color de fondo
+        borderColor: 'rgba(54, 162, 235, 0.2)', // Color del borde
+        borderWidth: 1,// Ancho del borde
+    };
+
+    new Chart($grafica, {
+        type: 'bar',// Tipo de gráfica
+        data: {
+            labels: etiquetas,
+            datasets: [
+                totalExamenes,
+                anormalResults
+            ]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }],
+            },
+        }
+        
+    });
+</script> 
+
