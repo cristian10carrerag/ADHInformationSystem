@@ -12,7 +12,7 @@ const examSchema = new Schema({
     date_of_exam: {
         type: String,
         required: true
-    },
+    }, 
     Dx: {
         type: String,
         required: true

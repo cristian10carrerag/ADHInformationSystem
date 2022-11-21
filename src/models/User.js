@@ -75,10 +75,6 @@ const UserSchema = Schema({
     },
 
 ////////////// Información de la sesión ///////////////////
-   /* rol: {
-        type: mongoose.Schema.Types.ObjectId, ref: 'roles',
-        required: true
-    },  */  
 
     role: {
         type: String,   

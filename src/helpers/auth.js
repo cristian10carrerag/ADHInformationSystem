@@ -4,7 +4,7 @@ helpers.isAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   }  
-  req.flash('error', 'Usuario no autenticado!!!');
+  req.flash('error', 'Usuario no autenticado!');
   res.redirect('/users/signInForm');
 };
 
@@ -13,7 +13,7 @@ helpers.isAdmin = (req, res, next) => {
     Admin = true;
     return next();
   }
-  req.flash('error', 'Usuario no es admin!!!');
+  req.flash("error", "Usuario no es admin!");
   res.redirect('/users/started');
 };
 
@@ -44,9 +44,5 @@ helpers.isLab_Staff_Admin = (req, res, next) => {
   req.flash('error', 'Usuario no es empleado!!!');
   res.redirect('/users/started');
 };
-
-
-//["admin", "physician", "lab_Staff", "patient"]
-
 
 module.exports = helpers;

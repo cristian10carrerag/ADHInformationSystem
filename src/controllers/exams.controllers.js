@@ -4,6 +4,9 @@ const Exam = require('../models/exams');
 const User= require('../models/User');
 
 
+let date = new Date();
+let today =  `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+
 /*------------------------------------------------------------------- 
         Staff tasks
 -------------------------------------------------------------------*/
@@ -72,8 +75,7 @@ examsCtrl.CreateNewExam = async (req, res) => {
 // Visualizar examenes pendientes
 examsCtrl.renderCreatedOrders = async (req, res) =>{
 
-    let date = new Date();
-    let today =  `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+
     
     const totalPendingOrdersToday = await Exam.countDocuments({$and: [{status: "pending"},{date_of_exam: today}]}); //Cuenta de los examenes pendientes para hoy. 
 

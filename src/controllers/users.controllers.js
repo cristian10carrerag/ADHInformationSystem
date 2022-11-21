@@ -20,7 +20,7 @@ usersCtrl.signIn = passport.authenticate('local', {
     failureFlash: true
 });
 usersCtrl.signInError = (req, res)=>{
-    req.flash('error_msg', 'Usuario o contraseña invalida!!!');
+    req.flash('error_msg', 'Usuario o contraseña invalida, intente nuevamente');
     res.redirect('signInForm')
 };
 usersCtrl.started = (req, res)=>{
@@ -45,7 +45,7 @@ usersCtrl.started = (req, res)=>{
 /////////// Salida de la plataforma /////////////////////////
 usersCtrl.logout = (req, res)=>{
     req.logout();
-    req.flash("success_msg", "Usted acaba de salir de (PSA information system) - Hasta pronto!!!");
+    req.flash("success_msg", "Usted acaba de salir de (ADH information system) - Hasta pronto");
     res.redirect("/");
 };
 
