@@ -45,7 +45,7 @@ usersCtrl.started = (req, res)=>{
 /////////// Salida de la plataforma /////////////////////////
 usersCtrl.logout = (req, res)=>{
     req.logout();
-    req.flash("success_msg", "Usted acaba de salir de (ADH information system) - Hasta pronto");
+    req.flash("success_msg", "Cierre de sesión satisfactorio, regresa pronto");
     res.redirect("/");
 };
 
@@ -321,9 +321,7 @@ usersCtrl.findUserByEmail = async (req, res)=>{
 
 //////Permite ver y Editar usuarios///////
 usersCtrl.seeUserAdminForm = async (req, res) => {
-    //console.log('Viendo un usuario')
     const user1 = await User.findById(req.params.id);
-    //console.log(user1)
     const Admin = true;    
     res.render('users/seeUserAdminForm', {user1, Admin}) 
 }
@@ -334,7 +332,6 @@ usersCtrl.editUserFormAdmin = async (req, res) => {
     res.render('users/editUserAdminForm', {user1, Admin})      
 };
 usersCtrl.editUserAdmin = async (req, res) => {  
-    //console.log(req.body)
     const {name, lastname, sec_lastname, identification, email, role} = req.body  
     await User.findByIdAndUpdate(req.params.id, {name, lastname, sec_lastname, identification, email, role})  
     const admin = true

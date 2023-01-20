@@ -1,134 +1,73 @@
 <div class="container">
 
-    <div class="row bg-dark my-4">
+    <div class="d-flex align-items-center my-4 stadistic stadistic--modified stadistic--grey">
         <div class="col">
-            <p class="text-end text-info">Exámenes realizados</p>
+            <h4 class="text-end text-info stadistic--title">Exámenes realizados</h4>
         </div>
 
         <div class="col">
-            <p class="text-white">Este mes: </p>
-            <p class="text-info">{{totalCompletedexamsCurrentMonth}}</p>
+            <p class="text-white stadistic__title">Este mes: </p>
+            <p class="text-info stadistic__number">{{totalCompletedexamsCurrentMonth}}</p>
         </div>
 
         <div class="col">
-            <p class="text-white">El mes pasado: </p>
-            <p class="text-info">{{totalCompletedexamsPreviousMonth}}</p>
-        </div>
-    </div>
-
-
-    <div class="row my-4">
-        <div class="col">
-            <div class="card">
-                <div class="card-body p-0">
-                    <div class="card-title bg-dark">
-                        <h3 class="p-3 text-info">Pacientes</h3>
-                    </div>
-                    <div class="card-text p-3 row">
-                        <div class="col">
-                            <p> {{totalPatients}} </p> {{!-- Hace falta cambiar el tamaño en css --}}
-                            <p>Total de pacientes registrados en la plataforma</p>
-                        </div>
-                        <div class="col text-center">
-                            <img src="/img/user_icon.svg" alt="User Icon" class="w-50">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <a href="/staff/orders" class="card">
-                <div class="card-body p-0">
-                    <div class="card-title bg-dark">
-                        <h3 class="p-3 text-info">Ordenes pendientes</h3>
-                    </div>
-                    <div class="card-text p-3 row">
-                        <div class="col">
-                            <p> {{totalPendingOrders}} </p> {{!-- Hace falta cambiar el tamaño en css --}}
-                        </div>
-                        <div class="col text-center">
-                            <img src="/img/result_icon.svg" alt="User Icon" class="w-50">
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="col">
-            <a href="/exams-done" class="card">
-                <div class="card-body p-0">
-                    <div class="card-title bg-dark">
-                        <h3 class="p-3 text-info">Examanes realizados este mes</h3>
-                    </div>
-                    <div class="card-text p-3 row">
-                        <div class="col">
-                            <p> {{totalCompletedexamsCurrentMonth}} </p> {{!-- Hace falta cambiar el tamaño en css --}}
-                        </div>
-                        <div class="col text-center">
-                            <img src="/img/doneExams_icon.svg" alt="User Icon" class="w-50">
-                        </div>
-                    </div>
-                </div>
-            </a>
+            <p class="text-white stadistic__title">El mes pasado: </p>
+            <p class="text-info stadistic__number">{{totalCompletedexamsPreviousMonth}}</p>
         </div>
     </div>
 
-    <div class="row my-4">
-
-        <div class="col">
-            <div class="card">
-                <div class="card-body p-0">
-                    <div class="card-title bg-dark">
-                        <h3 class="p-3 text-info">Examanes cancelados este mes</h3>
-                    </div>
-                    <div class="card-text p-3 row">
-                        <div class="col">
-                            <p> {{examenesCanceladosActualMes}} </p> 
-                        </div>
-                        <div class="col text-center">
-                            <img src="/img/cancel.svg" alt="User Icon" class="w-50">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <a href="/exams-canceled" class="card">
-                <div class="card-body p-0">
-                    <div class="card-title bg-dark">
-                        <h3 class="p-3 text-info">Total de examenes cancelados </h3>
-                    </div>
-                    <div class="card-text p-3 row">
-                        <div class="col">
-                            <p> {{examenesCanceladosTotal}} </p> 
-                        </div>
-                        <div class="col text-center">
-                            <img src="/img/cancel.svg" alt="User Icon" class="w-50">
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="col">
-            <div class="card">
-                <div class="card-body p-0">
-                    <div class="card-title bg-dark">
-                        <h3 class="p-3 text-info">Total de ordenes emitidas este mes</h3>
-                    </div>
-                    <div class="card-text p-3 row">
-                        <div class="col">
-                            <p> {{totalOrders}} </p> 
-                        </div>
-                        <div class="col text-center">
-                            <img src="/img/doneExams_icon.svg" alt="User Icon" class="w-50">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
 </div>
+
+
+<section class="container d-flex">
+    <div class="dashboard-group d-flex">
+        <div>
+            <div class="stadistic stadistic--pink p-4 m-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="stadistic__title">Pacientes registrados</h4>    
+                    <img src="/img/user_icon.svg" width="10%">
+                </div>
+                <p class="stadistic__number">{{totalPatients}}</p>
+            </div>
+
+            <div class="stadistic stadistic--yellow p-4 m-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="stadistic__title">Exámenes cancelados en el presente mes</h4>    
+                    <img src="/img/cancel.svg" width="10%">
+                </div>
+                <p class="stadistic__number">{{examenesCanceladosActualMes}}</p>
+            </div>
+        </div>
+
+        <div class="stadistic stadistic--blue p-4 m-4">
+            <h4 class="stadistic__title">Ordenes pendientes</h4>
+            <p class="stadistic__number">{{totalPendingOrders}}</p>
+        </div>
+    </div>
+
+    <div class="dashboard-group d-flex">
+        <div>
+            <div class="stadistic stadistic--orange p-4 m-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="stadistic__title">Total de exámenes cancelados</h4>    
+                    <img src="/img/cancel.svg" width="10%">
+                </div>
+                <p class="stadistic__number">{{examenesCanceladosTotal}}</p>
+            </div>
+
+            <div class="stadistic stadistic--green p-4 m-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="stadistic__title">Exámenes realizados en el presente mes</h4>    
+                    <img src="/img/doneExams_icon.svg" width="30%">
+                </div>
+                <p class="stadistic__number">{{totalCompletedexamsCurrentMonth}}</p>
+            </div>
+        </div>
+
+        <div class="stadistic stadistic--pink p-4 m-4">
+            <h4 class="stadistic__title">Ordenes emitidas en el presente mes</h4>
+            <p class="stadistic__number">{{totalOrders}}</p>
+            <img src="/img/doneExams_icon.svg" width="30%">
+        </div>
+    </div>
+</section>

@@ -21,7 +21,7 @@ router.get('/users/logout', logout);
 
 
 //Crear un usuario de cualquier tipo: Admin, paciente, laboratorio o médico.
-router.get('/users/createUserForm',  isAuthenticated, isAdmin, createUserForm);
+router.get('/users/createUserForm',  isAuthenticated, isAdmin, createUserForm); 
 router.post('/users/createUser', isAuthenticated, isAdmin, createUser);
 
 //Crear el primer administrador de la plataforma cuando se instala inicialmente 

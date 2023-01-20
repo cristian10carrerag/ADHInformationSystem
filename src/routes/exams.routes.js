@@ -39,7 +39,7 @@ router.post('/exams/findUserByIdentification', findUserByIdentification);
 router.post('/exams/new-exam', CreateNewExam);
 
 //Visualizar orden de los examenes (Examenes que no se han tomado)
-router.get('/staff/orders', renderCreatedOrders);
+router.get('/staff/orders', isAuthenticated, isLab_Staff, renderCreatedOrders);
 
 //Agregar resultados médicos
 router.get('/exams/edit/:id', renderEditForm);
@@ -70,7 +70,7 @@ router.get('/exams-patient', renderUserExams);
 
 
 //Visualizar orden de los examenes con la opción de eliminarlos (Examenes que no se han tomado)
-router.get('/staff/delete/orders', DeleteORdersList);
+router.get('/staff/delete/orders', isAuthenticated, isAdmin, DeleteORdersList);
 
 //Delete Exams
 router.delete('/exams/staff/delete/:id', deleteExam);

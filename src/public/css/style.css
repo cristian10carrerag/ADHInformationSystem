@@ -3,17 +3,32 @@
 */
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+:root{
+    --fuente-titulos: 'Arvo', serif; 
+    --fuente-cuerpo : 'Merriweather', serif;
+    --segoe: "Segoe UI", Arial, sans-serif;
+    --azul: #000d2c;
+    --gris-claro: #cad7e2;
+    --gris: #818f9c;
+    --blanco: #ffffff;
+}
+  
 body {
-    font-family: 'Muli', sans-serif;
+    font-family: var(--fuente-cuerpo);
     background: #ffffff;
 }
+  
+  h1, h2, h3, h4 {
+    font-family: var(--fuente-titulos);
+  }
+ 
+   
+  /* Hecho por el profesor */
 
 p {
-    /*font-family: 'Muli', sans-serif;*/
     font-family: 'Muli', sans-serif;
     font-size: 0.9em;
-    /*font-weight: 300;*/
-    /*line-height: 1.2em;*/
     color: rgb(27, 27, 27);
 }  
 
@@ -217,6 +232,12 @@ a.article:hover {
     100% {background-color: #25356B;}
 }
 
+/* Welcome Page */
+
+.welcomePage__img{
+    filter : grayscale(60%);
+    position: relative;
+}
 
 
 /* ---------------------------------------------------
@@ -229,14 +250,26 @@ a.article:hover {
 .footer{
     background-color: #434EA3;
     padding: 1rem;
+    color: #fff;
+}
+
+.footer p {
+    color: #fff;
+}
+
+.entidad:hover{
+    text-decoration: underline;
 }
 
 /* ---------------------------------------------------
     General
 ----------------------------------------------------- */
-.body{
-    min-height: 80vh;
+@media (min-width: 768px) {
+    .body{
+        min-height: 80vh;
+    }  
 }
+
 
 /* ---------------------------------------------------
     Banner
@@ -256,3 +289,61 @@ a.article:hover {
 .index__bg{
     background-color: #13093D;
 }
+
+/* ---------------------------------------------------
+    Started
+----------------------------------------------------- */
+.opciones-resultados:hover{
+    text-decoration: underline;
+    scale: 1.25;
+}
+
+/* ---------------------------------------------------
+    Dashboard
+----------------------------------------------------- */
+.stadistic{
+    border-radius: 20px;
+    transition-duration: 1s;
+}
+
+.stadistic:hover{
+    scale: 1.1;
+    background-color: #8fa5ff;
+}
+
+.stadistic--modified:hover{
+    background-color: #2a2930;
+}
+
+.stadistic__title{
+    font-size: 1em;
+}
+
+.stadistic__number{
+    font-size: 2.5em;
+}
+
+.stadistic--pink{
+    background-color: #fd7afd;
+}
+
+.stadistic--yellow{
+    background-color: #d4ec87;
+}
+
+.stadistic--blue{
+    background-color: #7386D5;
+}
+
+.stadistic--orange{
+    background-color: #eab677;
+}
+
+.stadistic--green{
+    background-color: #8eff93;
+}
+
+.stadistic--grey{
+    background-color: #2a2930;
+}
+

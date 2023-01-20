@@ -1,33 +1,12 @@
 <nav id="sidebar">
-    <div class="sidebar-header">
-        <h3 class="mb-0 mt-1 text-center font-italic font-weight-bold">ADH</h3>
-        <h5 class="mt-0 mb-0 text-center">Sistema de información</h5>
+    <div class="sidebar-header">    
+        <img src="/img/Logo_blanco.png" width="70%" class="mx-auto d-block" />                                                   
     </div>
 
     <ul class="list-unstyled components mt-0"> 
         <li class="active mt-0">
-            <a href="/users/signInForm">Inicio</a>
+            <a href="/users/signInForm"> Inicio</a>
         </li>       
-
-        {{!-- {{#if user}}
-            <li>
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle mt-0">Manuales</a> 
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li>
-                        <a href="#">Paciente</a>
-                    </li>
-                    <li>
-                        <a href="#">Empleado</a>
-                    </li>
-                    <li>
-                        <a href="#">Médico</a>
-                    </li>
-                    <li>
-                        <a href="#">Administrador</a>
-                    </li>
-                </ul>
-            </li>
-        {{/if}} --}}
 
         {{#if Admin}}
             <li>
@@ -63,7 +42,7 @@
 
         {{#if user}}
         <li>
-            <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Exámenes</a>
+            <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">Exámenes</a>
             <ul class="collapse list-unstyled" id="pageSubmenu1">
 
                 {{#if Paciente}}
@@ -80,6 +59,10 @@
                     <li>
                         <a href="/staff/orders"> Ordenes médicas </a>
                     </li>
+
+                    <li>
+                        <a href="/exams-canceled">Exámenes cancelados</a>
+                    </li>
                 {{/if}}
 
                 {{#if Admin}}
@@ -95,14 +78,10 @@
                     </li>
                 {{/if}}
 
-                {{#if Empleado}}                
-                    <li>
-                        <a href="/exams-canceled">Exámenes cancelados</a>
-                    </li>
-                {{/if}}
             </ul>
         </li>
         {{/if}}
+
 
         <li>
             <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Estadísticas</a>
@@ -137,15 +116,5 @@
             </ul>
         </li>
         {{/if}}
-    </ul>
-
-    <ul class="list-unstyled CTAs">        
-        <li>            
-            <div > 
-                <p class="badge rounded-0 bg-info text-center container mb-0">Secretaría de salud
-                <br> Departamento del Huila</p>
-                <img src="/img/minsalud.png" width="210" alt="" />                                          
-            </div>   
-        </li>        
     </ul>
 </nav>

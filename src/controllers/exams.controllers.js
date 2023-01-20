@@ -4,8 +4,12 @@ const Exam = require('../models/exams');
 const User= require('../models/User');
 
 
-let date = new Date();
-let today =  `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+function currentDate () {
+    let date = new Date();
+    let today =  `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+    return today; 
+}
+
 
 /*------------------------------------------------------------------- 
         Staff tasks
@@ -67,6 +71,7 @@ examsCtrl.CreateNewExam = async (req, res) => {
 
     const newExam = new Exam({date_of_exam, hour_of_exam, name, lastName, identification, user, status, Dx, city, date_of_bird, age, group});
     await newExam.save(); 
+    req.flash("success_msg", "Orden creada exitosamente.");
     res.redirect('/staff/orders');
     }; 
 
@@ -74,15 +79,10 @@ examsCtrl.CreateNewExam = async (req, res) => {
 
 // Visualizar examenes pendientes
 examsCtrl.renderCreatedOrders = async (req, res) =>{
-
-
-    
+    const today = currentDate ();    
     const totalPendingOrdersToday = await Exam.countDocuments({$and: [{status: "pending"},{date_of_exam: today}]}); //Cuenta de los examenes pendientes para hoy. 
-
     const pendingOrdersToday = await Exam.find({$and: [{status: "pending"},{date_of_exam: today}]}).sort({date_of_exam: 1});
-
     const pendingExams = await Exam.find({status: "pending"}).lean().sort({date_of_exam: 1});
-    
     res.render('exams/staff/pendingExams', {pendingExams, totalPendingOrdersToday, pendingOrdersToday}); 
 };
 
@@ -133,7 +133,8 @@ examsCtrl.cancelOrderForm = async (req, res) =>{
 // Método PUT cancelación de ordenes médicas
 examsCtrl.cancelOrder = async (req, res) => {
     const {status, whyCancel} = req.body;
-    await Exam.findByIdAndUpdate(req.params.id, {status, whyCancel})
+    await Exam.findByIdAndUpdate(req.params.id, {status, whyCancel});
+    req.flash("success_msg", "Cancelación de cita aceptada.");
     res.redirect('/exams-canceled')
 };
 
@@ -149,6 +150,7 @@ examsCtrl.DeleteORdersList = async (req, res) => {
 //Eliminar orden de examen
 examsCtrl.deleteExam = async (req, res) => {
     await Exam.findByIdAndDelete(req.params.id);
+    req.flash("success_msg", "Orden eliminada satisfactoriamente.");
     res.redirect('/staff/orders');
 };
 
@@ -165,6 +167,7 @@ examsCtrl.renderEditForm = async (req, res) => {
 examsCtrl.updateExam = async (req, res) => {
     const {Result, description, status, nivel} = req.body;
     await Exam.findByIdAndUpdate(req.params.id, {Result, description, status, nivel});
+    req.flash("success_msg", "Resultados agregados exitosamente. ");
     res.redirect('/exams-done');
 };
 
