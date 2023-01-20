@@ -1,0 +1,323 @@
+/*
+    DEMO STYLE
+*/
+
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+:root{
+    --fuente-titulos: 'Arvo', serif; 
+    --fuente-cuerpo : 'Merriweather', serif;
+    --segoe: "Segoe UI", Arial, sans-serif;
+    --azul: #000d2c;
+    --gris-claro: #cad7e2;
+    --gris: #818f9c;
+    --blanco: #ffffff;
+}
+  
+body {
+    font-family: var(--fuente-cuerpo);
+    background: #ffffff;
+}
+  
+  h1, h2, h3, h4 {
+    font-family: var(--fuente-titulos);
+  }
+ 
+   
+  /* Hecho por el profesor */
+
+p {
+    font-family: 'Muli', sans-serif;
+    font-size: 0.9em;
+    color: rgb(27, 27, 27);
+}  
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.navbar {    
+    background: #f1f6fd;
+    border: none;    
+}
+
+.linep {
+    width: 100%;
+    height: 1px;
+    border-bottom: 3px dashed #ddd;
+    margin: 5px 0;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 30px 0;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+} 
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    /* background: #546aca; */ /* Color que tenía originalmente */ 
+    background: #434EA3;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #434EA3;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #b9b7c2;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: #434EA3;
+    background: #fff;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #434EA3;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+a.download {
+    background: #fff;
+    color: #7386D5;
+}
+
+a.article,
+a.article:hover {
+    background: #6d7fcc !important;
+    color: #fff !important;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    width: 100%;
+    /* padding: 20px 0; */
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+
+/* ---------------------------------------------------
+    INDEX   
+----------------------------------------------------- */
+.index__container{
+    max-width: 70vw;
+    margin: 5rem auto;
+    border-radius: 12rem;
+    transition-duration: 1s;
+    background-color: #25356B;
+}
+
+.index__container:hover{
+    background-color: #01133f;
+}
+
+.contenedor__title {
+    color: white;
+    transition-duration: 1s;
+}
+
+.contenedor__title:hover {
+    scale: 1.2;
+}
+
+.textos{
+    padding: 2rem 15rem;
+    margin-top: -10rem;
+}
+
+
+/* Welcome Page */
+
+.welcomePage__img{
+    filter : grayscale(60%);
+    position: relative;
+}
+
+
+/* ---------------------------------------------------
+    DASHBOARD
+----------------------------------------------------- */
+
+/* ---------------------------------------------------
+    FOOTER
+----------------------------------------------------- */
+.footer{
+    background-color: #434EA3;
+    padding: 1rem;
+    color: #fff;
+}
+
+.footer p {
+    color: #fff;
+}
+
+.entidad:hover{
+    text-decoration: underline;
+}
+
+/* ---------------------------------------------------
+    General
+----------------------------------------------------- */
+@media (min-width: 768px) {
+    .body{
+        min-height: 80vh;
+    }  
+}
+
+
+/* ---------------------------------------------------
+    Banner
+----------------------------------------------------- */
+.Banner{
+    min-height: 70vh;
+    background-image: url(../img/Index/Banner_img.jpg);
+    background-position: center center;
+    background-size: contain;
+}
+
+.Banner__text{
+    color: #fff;
+    text-align: center;
+}
+
+.index__bg{
+    background-color: #13093D;
+}
+
+/* ---------------------------------------------------
+    Started
+----------------------------------------------------- */
+.opciones-resultados:hover{
+    text-decoration: underline;
+    scale: 1.25;
+}
+
+/* ---------------------------------------------------
+    Dashboard
+----------------------------------------------------- */
+.stadistic{
+    border-radius: 20px;
+    transition-duration: 1s;
+}
+
+.stadistic:hover{
+    scale: 1.1;
+    background-color: #8fa5ff;
+}
+
+.stadistic--modified:hover{
+    background-color: #2a2930;
+}
+
+.stadistic__title{
+    font-size: 1em;
+}
+
+.stadistic__number{
+    font-size: 2.5em;
+}
+
+.stadistic--pink{
+    background-color: #fd7afd;
+}
+
+.stadistic--yellow{
+    background-color: #d4ec87;
+}
+
+.stadistic--blue{
+    background-color: #7386D5;
+}
+
+.stadistic--orange{
+    background-color: #eab677;
+}
+
+.stadistic--green{
+    background-color: #8eff93;
+}
+
+.stadistic--grey{
+    background-color: #2a2930;
+}
+
