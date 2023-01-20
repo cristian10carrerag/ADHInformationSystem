@@ -179,39 +179,25 @@ a.article:hover {
 /* ---------------------------------------------------
     INDEX   
 ----------------------------------------------------- */
-.index{
-    height: 70vh;
-}
-
 .index__container{
     max-width: 70vw;
     margin: 5rem auto;
     border-radius: 12rem;
-    animation-name: containerAnimation;
-    animation-duration: 8s;
-    animation-delay: 1s;
-    animation-fill-mode: forwards;
+    transition-duration: 1s;
+    background-color: #25356B;
 }
 
-
-@keyframes containerAnimation {
-    100%{background-color: #25356B;}
+.index__container:hover{
+    background-color: #01133f;
 }
 
-.index__img{
-    width: 20%;
-    position: relative;
-    animation-name: imgAnimation;
-    animation-duration: 8s;
-    animation-timing-function: ease;
-    animation-fill-mode: forwards;
-    z-index: 3;
+.contenedor__title {
+    color: white;
+    transition-duration: 1s;
 }
 
-
-@keyframes imgAnimation {
-    0% {left: 0px; top: 0px;}
-    100%{left: 75%; top: 0px;}
+.contenedor__title:hover {
+    scale: 1.2;
 }
 
 .textos{
@@ -219,18 +205,6 @@ a.article:hover {
     margin-top: -10rem;
 }
 
-.contenedor__title {
-    color: white;
-}
-
-.animate__animated.animate__fadeInLeft {
-    --animate-duration: 8s;
-  }
-
-
-@keyframes backgroundAnimation {
-    100% {background-color: #25356B;}
-}
 
 /* Welcome Page */
 
